@@ -4,9 +4,9 @@ class Users::SessionsController < Devise::SessionsController
   before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  #def new
+  #  super
+  #end
 
   # POST /resource/sign_in
   def create
@@ -14,16 +14,16 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  #def destroy
+  #　 super
+  #end
   
-  def after_sign_in_path_for(user)
-    mypage_path(user)
+  def after_sign_in_path_for(resource)
+    home_top_path
   end
  
-  def after_sign_out_path_for(user)
-    login_path(user)
+  def after_sign_out_path_for(resource)
+    login_path
   end
 
   protected
