@@ -1,8 +1,18 @@
-<head>
-   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
-<%= render partial: "layouts/header" %>
-<button type="button" class="btn btn-primary">Primary</button>
-<button type="button" class="btn btn-secondary">Secondary</button>
-<button type="button" class="btn btn-warning">Warning</button>
+<%= render partial: 'layouts/header' %>
+<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+
+<h1>ようこそ<%= current_user.username %>さん</h1>
+
+<h2>MENU</h2>
+
+<div class = "menulist">
+    <p>記録しよう</p>
+    　<button type="button" class="btn btn-primary">収入</button>
+    　<button type="button" class="btn btn-success">支出</button>
+    <p><a href=#>カレンダー</a></p>
+    <p><a href=#>今月のレポート</a></p>
+    <p>その他</p>
+      <button type="button" class="btn btn-info">資産運用シミュレーション</button>
+      <button type="button" class="btn btn-info">貯金シミュレーション</button>
+      <button type="button" class="btn btn-info">登録内容の編集</button>
+</div>

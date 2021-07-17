@@ -1,4 +1,7 @@
-<h1>Home#top</h1>
-<h2>ようこそ！#{@current_username}さん</h2>
-<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+<div style="background-images: url(images/money.jpg) no-repeat 100% 100%;">
 
+  <h1>MoneyApp</h1>
+  <%= link_to "ログイン", login_path %>
+  <%= link_to "新規登録", signup_path %>
+
+</div>

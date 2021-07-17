@@ -19,11 +19,11 @@ class Users::SessionsController < Devise::SessionsController
   #end
   
   def after_sign_in_path_for(resource)
-    home_top_path
+    mypage_path(resource)
   end
  
   def after_sign_out_path_for(resource)
-    login_path
+    home_top_path
   end
 
   protected
