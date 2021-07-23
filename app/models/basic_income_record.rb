@@ -1,0 +1,2 @@
+class BasicIncomeRecord < ApplicationRecord
+end
