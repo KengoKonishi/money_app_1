@@ -1,0 +1,2 @@
+class BasicExpenseCategory < ApplicationRecord
+end

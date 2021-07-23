@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'mypage/show'
-  get 'home/top'
+  get '/' => "home#top"
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions',
