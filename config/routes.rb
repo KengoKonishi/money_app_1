@@ -16,4 +16,5 @@ Rails.application.routes.draw do
     get "logout", :to => "users/sessions#destroy"
   end
   resources :mypage
+  resources :basic_income_records
 end

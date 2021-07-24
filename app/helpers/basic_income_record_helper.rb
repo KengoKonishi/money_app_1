@@ -1,0 +1,2 @@
+module BasicIncomeRecordHelper
+end
