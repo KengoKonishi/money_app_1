@@ -1,2 +1,13 @@
 <h1>BasicIncomeRecord#index</h1>
-<p>Find me in app/views/basic_income_record/index.html.erb</p>
+
+<% @basic_income_records.each do |basic_income_record| %>
+  <%= basic_income_record.date %>
+  <%= basic_income_record.money %>
+  <%= basic_income_record.category_id %>
+  <%= basic_income_record.memo %>
+  
+  <%= link_to "Show", basic_income_record_path(basic_income_record) %>
+  <%= link_to "Edit", edit_basic_income_record_path(basic_income_record) %>
+  <%= link_to "Delete", basic_income_record_path(basic_income_record), method: :delete, data: { confirm: 'Are you sure?' } %>
+  
+<% end %>
