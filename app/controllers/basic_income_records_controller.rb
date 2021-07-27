@@ -4,6 +4,7 @@ class BasicIncomeRecordsController < ApplicationController
   end
 
   def show
+    @basic_income_record = BasicIncomeRecord.find(params[:id])
   end
 
   def new
@@ -15,8 +16,15 @@ class BasicIncomeRecordsController < ApplicationController
 
   def create
     @basic_income_record = BasicIncomeRecord.new(basic_income_record_params)
-    @basic_income_record.save
-    redirect_to mypage_path
+    @user_id = current_user.id
+    @basic_income_category_id = params[:basic_income_category_id]
+    if @basic_income_record.save
+      flash[:success] = '正常にと入力されました'
+      redirect_to basic_income_record_path
+    else
+      flash.now[:danger] = '正常に入力されませんでした'
+      render :new
+    end
   end
 
   def edit
@@ -37,6 +45,6 @@ class BasicIncomeRecordsController < ApplicationController
   
   private
     def basic_income_record_params
-      params.require(:basic_income_product).permit(:registerdate, :money, :memo, :basic_income_category_id)
+      params.require(:basic_income_record).permit(:registerdate, :money, :memo, :basic_income_category_id)
     end
 end

@@ -1,10 +1,10 @@
 <h1>BasicIncomeRecord#index</h1>
 
 <% @basic_income_records.each do |basic_income_record| %>
-  <%= basic_income_record.date %>
+  <%= basic_income_record.registerdate %>
   <%= basic_income_record.money %>
-  <%= basic_income_record.category_id %>
   <%= basic_income_record.memo %>
+  <%= basic_income_record.basic_income_category_id %>
   
   <%= link_to "Show", basic_income_record_path(basic_income_record) %>
   <%= link_to "Edit", edit_basic_income_record_path(basic_income_record) %>
