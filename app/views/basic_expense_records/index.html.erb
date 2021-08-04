@@ -1,0 +1,13 @@
+<h1>基本項目の支出一覧</h1>
+
+<% @basic_expense_records.each do |basic_expense_record| %>
+  <%= basic_expense_record.registerdate %>
+  <%= basic_expense_record.money %>円
+  <%= basic_expense_record.memo %>
+  <%= basic_expense_record.basic_expense_category_id %>
+  
+  <%= link_to "Show", basic_expense_record_path(basic_expense_record) %>
+  <%= link_to "Edit", edit_basic_expense_record_path(basic_expense_record) %>
+  <%= link_to "Delete", basic_expense_record_path(basic_expense_record), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <br>
+<% end %>
