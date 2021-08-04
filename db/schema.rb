@@ -10,12 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_24_065528) do
+ActiveRecord::Schema.define(version: 2021_08_04_095416) do
 
   create_table "basic_expense_categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "basic_expense_records", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "money"
+    t.integer "basic_expense_category_id"
+    t.string "memo"
+    t.date "registerdate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["basic_expense_category_id"], name: "index_basic_expense_records_on_basic_expense_category_id"
+    t.index ["user_id"], name: "index_basic_expense_records_on_user_id"
   end
 
   create_table "basic_income_categories", force: :cascade do |t|

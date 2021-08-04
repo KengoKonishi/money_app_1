@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   end
   resources :mypage
   resources :basic_income_records
+  resources :basic_expense_records
 end
