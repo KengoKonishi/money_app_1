@@ -1,10 +1,12 @@
 class BasicIncomeRecordsController < ApplicationController
   def index
     @basic_income_records = BasicIncomeRecord.all
+    @basic_income_category_id = params[:basic_income_category_id]
   end
 
   def show
     @basic_income_record = BasicIncomeRecord.find(params[:id])
+    @basic_income_category = BasicIncomeCategory.find(params[:id])
   end
 
   def new
@@ -19,10 +21,10 @@ class BasicIncomeRecordsController < ApplicationController
     @user_id = current_user.id
     @basic_income_category_id = params[:basic_income_category_id]
     if @basic_income_record.save
-      flash[:success] = '正常にと入力されました'
-      redirect_to basic_income_record_path
+      flash[:success] = '正常に入力されました'
+      redirect_to mypage_show_path
     else
-      flash.now[:danger] = '正常に入力されませんでした'
+      flash[:alert] = '正常に入力されませんでした'
       render :new
     end
   end
@@ -33,18 +35,24 @@ class BasicIncomeRecordsController < ApplicationController
 
   def update
     @basic_income_record = BasicIncomeRecord.find(params[:id])
-    @basic_income_record.update(basic_income_record_params)
-    redirect_to mypage_path
+    if @basic_income_record.update(basic_income_record_params)
+      flash[:success] = '変更完了しました'
+      redirect_to mypage_path
+    else
+      flash[:alert] = '正常に入力されませんでした'
+      render :edit
+    end
   end
 
   def destroy
     @basic_income_record = BasicIncomeRecord.find(params[:id])
     @basic_income_record.destroy
+    flash[:success] = "削除しました。"
     redirect_to mypage_path
   end
   
   private
     def basic_income_record_params
-      params.require(:basic_income_record).permit(:registerdate, :money, :memo, :basic_income_category_id)
+      params.require(:basic_income_record).permit(:registerdate, :money, :memo, :basic_income_category_id, :user_id)
     end
 end
