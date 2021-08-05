@@ -1,0 +1,9 @@
+<h1>original収入項目編集ページ</h1>
+
+<%= form_with model: @original_income_record do |f| %>
+  <%= f.date_field :registerdate %>
+  <%= f.number_field :money %>
+  <%= f.text_field :memo %>
+  <%= f.collection_radio_buttons :original_income_category_id, OriginalIncomeCategory.all, :id, :name %>
+  <%= f.submit "編集" %>
+<% end %>

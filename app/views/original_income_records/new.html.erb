@@ -1,6 +1,6 @@
-<h1>basic収入登録しよう！！</h1>
+<h1>original収入登録しよう！！</h1>
 
-<%= form_with model: @basic_income_record do |f| %>
+<%= form_with model: @original_income_record do |f| %>
   <p>
     <%= label_tag :registerdate, '日付：' %>
     <%= f.date_field :registerdate %>
@@ -14,8 +14,8 @@
     <%= f.text_field :memo %>
   </p>
   <P>
-    <%= label_tag :basic_income_category_id, '収入科目：' %>
-    <%= f.collection_radio_buttons :basic_income_category_id, BasicIncomeCategory.all, :id, :name %>
+    <%= label_tag :original_income_category_id, '収入科目：' %>
+    <%= f.collection_radio_buttons :original_income_category_id, OriginalIncomeCategory.all, :id, :name %>
   </P>
   <P>
     <%= f.hidden_field :user_id, value: current_user.id %>
