@@ -1,0 +1,13 @@
+<h1>オリジナル項目の収入一覧</h1>
+
+<% @original_income_records.each do |original_income_record| %>
+  <%= original_income_record.registerdate %>
+  <%= original_income_record.money %>円
+  <%= original_income_record.memo %>
+  <%= original_income_record.original_income_category_id %>
+  
+  <%= link_to "Show", original_income_record_path(original_income_record) %>
+  <%= link_to "Edit", edit_original_income_record_path(original_income_record) %>
+  <%= link_to "Delete", original_income_record_path(original_income_record), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <br>
+<% end %>
