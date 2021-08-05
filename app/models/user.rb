@@ -6,4 +6,5 @@ class User < ApplicationRecord
   
   has_many :basic_income_records
   has_many :basic_expense_records
+  has_many :original_income_categories
 end

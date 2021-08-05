@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   resources :mypage
   resources :basic_income_records
   resources :basic_expense_records
+  resources :original_income_categories
 end
