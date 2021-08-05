@@ -1,0 +1,6 @@
+<h1>自作収入カテゴリ編集ページ</h1>
+
+<%= form_with model: @original_income_category do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit "編集" %>
+<% end %>
