@@ -1,0 +1,33 @@
+$(function() {
+$.ajax({
+        url: 'アクセスするURL', //アクセスするURL
+        type: 'postかget',　　 //post or get
+        cache: false,        //cacheを使うか使わないかを設定
+        dataType:'json',     //data type script・xmlDocument・jsonなど
+        data:data,           //アクセスするときに必要なデータを記載      
+      })
+      .done(function(response) { 
+         //通信成功時の処理
+         //成功したとき実行したいスクリプトを記載
+      })
+      .fail(function(xhr) {  
+　　　　　 //通信失敗時の処理
+         //失敗したときに実行したいスクリプトを記載
+      })
+      .always(function(xhr, msg) { 
+　　　　　//通信完了時の処理
+        //結果に関わらず実行したいスクリプトを記載
+   });   
+   
+   
+  $('   ').click( function() {
+    if($('.basic_income_group').prop('checked')){
+　　　　const request = $.post('/vehicles/change_parking')
+　　　　request.done((response) => {
+ 　　　　 $('input[type="checkbox"]).attr('checked', response.responseJSON.vehicle.parked)
+　　　})
+    } elsif ($('.original_income_group').prop('checked')) {
+
+    } 
+  });
+});

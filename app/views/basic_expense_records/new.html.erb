@@ -1,3 +1,5 @@
+<%= render partial: 'layouts/header' %>
+<div class="record_container">
 <h1>支出登録しよう！！</h1>
 
 <%= form_with model: @basic_expense_record do |f| %>
@@ -22,3 +24,4 @@
   </P>
   <%= f.submit "登録" %>
 <% end %>
+</div>
