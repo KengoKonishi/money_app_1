@@ -67,3 +67,5 @@ gem 'jquery-rails'
 
 # deviseを使用できる
 gem 'devise'
+
+gem 'dotenv-rails'
