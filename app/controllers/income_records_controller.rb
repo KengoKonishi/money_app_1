@@ -15,7 +15,6 @@ class IncomeRecordsController < ApplicationController
   end
 
   def create
-    
     respond_to do |format|
       format.html 
       format.js 
