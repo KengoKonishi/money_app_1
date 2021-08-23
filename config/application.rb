@@ -17,5 +17,6 @@ module MoneyApp
     # the framework and any gems in your application.
     # バリデーションエラーが発生したときに'field_with_errors'というclassを付加しない
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
+    config.action_view.embed_authenticity_token_in_remote_forms = true
   end
 end

@@ -1,6 +1,41 @@
 // Place all the styles related to the mypage controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body{
-    background-color:white;
+.mypage_container{
+    background-color:#EEEEEE;
+    height:1000px;
+}
+
+.welcomeuser{
+    margin-left:30px;
+    font-size:30px;
+}
+.menu_container{
+
+}
+.menu_box{
+    border: solid 3px black;
+    border-radius: 9px;
+    background-color:#FFCC99;
+    margin:50px 30%;
+    height:1000px;
+}
+.menu_title{
+    text-align:center;
+}
+.menulist{
+    padding:20px;
+}
+.btn.btn-primary{
+    width:40%;
+}
+.btn.btn-success{
+    width:40%;
+}
+.record_watch{
+    margin-top:20px;
+}
+.btn.btn-info{
+    width:45%;
+    margin-top:20px;
 }

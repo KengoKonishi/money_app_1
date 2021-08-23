@@ -14,3 +14,23 @@
  *= require_self
  */
 @import "bootstrap";
+
+nav{
+  height:70px;    
+}
+
+.container{
+    margin-top:0px;
+}
+.newuser_register{
+  padding:30px;
+  font-size:30px;
+}
+.field{
+  padding:20px;
+  text-align:center;
+}
+.actions{
+  padding:20px;
+  text-align:center;
+}

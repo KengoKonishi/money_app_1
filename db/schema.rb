@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_05_091224) do
+ActiveRecord::Schema.define(version: 2021_08_08_151040) do
 
   create_table "basic_expense_categories", force: :cascade do |t|
     t.string "name"
@@ -46,6 +46,11 @@ ActiveRecord::Schema.define(version: 2021_08_05_091224) do
     t.date "registerdate"
     t.index ["basic_income_category_id"], name: "index_basic_income_records_on_basic_income_category_id"
     t.index ["user_id"], name: "index_basic_income_records_on_user_id"
+  end
+
+  create_table "income_records", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "original_income_categories", force: :cascade do |t|
