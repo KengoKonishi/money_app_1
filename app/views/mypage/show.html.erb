@@ -3,7 +3,7 @@
  <h1 class="welcomeuser">ようこそ<%= current_user.username %>さん</h1>
  <div class="menu_container">
    <div class="menu_box">
-   <h2 class="menu_title">MENU</h2>
+   <h2 class="menu_title">Infomation</h2>
      <div class = "menulist">
       
       <div class="card text-center">
@@ -11,13 +11,25 @@
           記録しよう
         </div>
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-         <button type="button" class="btn btn-primary" onclick="location.href='https://b35d31f38bf146ceab70f1bfc3b4f541.vfs.cloud9.us-east-2.amazonaws.com/basic_income_records/new'">収入</button>
-       　<button type="button" class="btn btn-success" onclick="location.href='https://b35d31f38bf146ceab70f1bfc3b4f541.vfs.cloud9.us-east-2.amazonaws.com/basic_expense_records/new'">支出</button>
-        </div>
-        <div class="card-footer text-muted">
-          2 days ago
+         
+              <div class="btn-group">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-sign-in-alt"></i> 収入登録
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="https://b35d31f38bf146ceab70f1bfc3b4f541.vfs.cloud9.us-east-2.amazonaws.com/basic_income_records/new">基本項目</a>
+                <a class="dropdown-item" href="https://b35d31f38bf146ceab70f1bfc3b4f541.vfs.cloud9.us-east-2.amazonaws.com/original_income_records/new">オリジナル項目</a>
+              </div>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-sign-out-alt"></i> 支出登録
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="https://b35d31f38bf146ceab70f1bfc3b4f541.vfs.cloud9.us-east-2.amazonaws.com/basic_expense_records/new">基本項目</a>
+                <a class="dropdown-item" href="https://b35d31f38bf146ceab70f1bfc3b4f541.vfs.cloud9.us-east-2.amazonaws.com/original_expense_records/new">オリジナル項目</a>
+              </div>
+            </div>
         </div>
       </div>
  
@@ -26,13 +38,8 @@
           記録結果を見よう
         </div>
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
           <p><a href=#>カレンダー</a></p>
           <p><a href=#>今月のレポート</a></p>
-        </div>
-        <div class="card-footer text-muted">
-          2 days ago
         </div>
       </div>
 
@@ -41,14 +48,9 @@
           その他
         </div>
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-         <button type="button" class="btn btn-info">資産運用シミュレーション</button>
-         <button type="button" class="btn btn-info">貯金シミュレーション</button>
-         <button type="button" class="btn btn-info">登録内容の編集</button>
-        </div>
-        <div class="card-footer text-muted">
-          2 days ago
+         <button type="button" class="btn btn-info"><i class="fas fa-chart-line"></i> 資産運用シミュレーション</button>
+         <button type="button" class="btn btn-info"><i class="fas fa-comment-dollar"></i> 貯金シミュレーション</button>
+         <button type="button" class="btn btn-info"><i class="fas fa-cog"></i> 登録内容の編集</button>
         </div>
       </div>
 
@@ -56,4 +58,4 @@
    </div>
  </div>
 </div>
-<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+<%= render partial: 'layouts/footer' %>
