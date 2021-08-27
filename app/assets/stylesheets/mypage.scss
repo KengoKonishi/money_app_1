@@ -3,10 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .mypage_container{
     background-color:#EEEEEE;
-    height:1000px;
+    height:100%;
 }
 
 .welcomeuser{
+    padding-top:75px;
     margin-left:30px;
     font-size:30px;
 }
@@ -18,10 +19,11 @@
     border-radius: 9px;
     background-color:#FFCC99;
     margin:50px 30%;
-    height:1000px;
+    height:auto;
 }
 .menu_title{
     text-align:center;
+    font-family: 'Caveat', cursive;
 }
 .menulist{
     padding:20px;
@@ -38,4 +40,11 @@
 .btn.btn-info{
     width:45%;
     margin-top:20px;
+}
+.card.text-center{
+    margin:30px 0px;
+}
+.btn-group{
+    width:45%;
+    padding:0px 30px;
 }

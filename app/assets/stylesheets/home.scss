@@ -1,14 +1,14 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-.backgroundbody{
+
+.background_body{
     background-image:url(/images/money.jpg);
     background-repeat: no-repeat;
     background-size:cover;
-    height: 1090px;
+    height: 100%;
 }
-
-.title{
+header{
+    height:auto;
+}
+.top_page_title{
     text-align:center;
     padding-top:220px;
     height:auto;
@@ -17,21 +17,17 @@
 .maintitle{
     color:white;
 }
-.container{
-    margin-top:90px;
-    text-align: center;
+
+.aaa{
+    color:white;
 }
-.box{
+.btn.btn-primary.btn-lg.btn-block,.btn.btn-secondary.btn-lg.btn-block{
+    width: 40%;
     margin:auto;
-    background-color:white;
-    opacity:0.8;
-    height:300px;
-    width:45%;
-    text-align:center;
+    margin-top:20px;
+    margin-bottom:20px;
 }
-.login_button,.signup_button{
-    display:inline-block;
-    font-size:40px;
-    margin-top:20%;
-    padding:20px;
+
+.top_page_container{
+    margin-top:80px;
 }
