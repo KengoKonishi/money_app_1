@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'mypage/show'
   get '/' => "home#top"
   devise_for :users, :controllers => {
@@ -21,4 +22,6 @@ Rails.application.routes.draw do
   resources :original_income_categories
   resources :original_income_records
   resources :income_records
+  resources :original_expense_categories
+  resources :original_expense_records
 end
