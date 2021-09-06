@@ -18,7 +18,7 @@ class OriginalExpenseCategoriesController < ApplicationController
     @user_id = current_user.id
     if @original_expense_category.save
       flash[:success] = '正常に入力されました'
-      redirect_to mypage_show_path
+      redirect_to new_original_expense_record_path
     else
       flash[:alert] = '正常に入力されませんでした'
       render :new

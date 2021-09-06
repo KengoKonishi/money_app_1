@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_27_225424) do
+ActiveRecord::Schema.define(version: 2021_08_27_232044) do
 
   create_table "basic_expense_categories", force: :cascade do |t|
     t.string "name"
@@ -59,6 +59,18 @@ ActiveRecord::Schema.define(version: 2021_08_27_225424) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_original_expense_categories_on_user_id"
+  end
+
+  create_table "original_expense_records", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "money"
+    t.integer "original_expense_category_id"
+    t.string "memo"
+    t.date "registerdate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["original_expense_category_id"], name: "index_original_expense_records_on_original_expense_category_id"
+    t.index ["user_id"], name: "index_original_expense_records_on_user_id"
   end
 
   create_table "original_income_categories", force: :cascade do |t|

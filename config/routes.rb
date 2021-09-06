@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  get '/simple_calender/top' => "simple_calender#top"
   get 'mypage/show'
   get '/' => "home#top"
   devise_for :users, :controllers => {
