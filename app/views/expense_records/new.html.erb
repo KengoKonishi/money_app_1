@@ -1,0 +1,69 @@
+<%= render partial: 'layouts/header' %>
+<div class="record_container">
+<h1>支出登録しよう！！</h1>
+
+<%= form_with model: @expense_record do |f| %>
+  <p>
+    <%= label_tag :registerdate, '◆日付：' %>
+    <%= f.date_field :registerdate %>
+  </p>
+  <p>
+    <%= label_tag :money, '◆金額：' %>
+    <%= f.number_field :money %>
+  </p>
+  <p>
+    <%= label_tag :memo, '◆MEMO：' %>
+    <%= f.text_field :memo %>
+  </p>
+  <P>
+    <%= label_tag :expense_category_id, '◆収入科目：' %>
+    <br />
+    <p>・基本科目</p>
+    <%= f.collection_radio_buttons :basic_expense_category, BasicExpenseCategory.all, :id, :name, {id: "basic_expense_group"}, disabled: false, onclick: "basicfunc()" %>
+    <br />
+    <p>・オリジナル追加科目</p>
+    <%= f.collection_radio_buttons :original_expense_category, OriginalExpenseCategory.all, :id, :name, {id: "original_expense_group"}, disabled: false, onclick: "originalfunc()" %>
+  </P>
+  <P>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  </P>
+  
+  <%= f.submit '登録1', id: "ber" %>
+  <%= f.submit '登録2', id: "oer" %>
+<% end %>
+
+  <script>
+       document.getElementById("ber").style.display ="none";
+  　　　 document.getElementById("oer").style.display ="none";;
+     //basic_income_catgeoryを押したとき！！-->
+      var basicfunc = function(){
+          var oec = document.querySelectorAll('[id^="expense_record_original"]');
+            for (var i = 0; i < oec.length; i++) {
+               oec[i].disabled = true; 
+            }//original_income_categoryをdisabledする
+        //basic_income_record専用のbuttonを表示する
+        const p1 = document.getElementById("ber");
+        if(p1.style.display=="block"){
+    		    p1.style.display ="none";
+    	   }else{
+    		  	p1.style.display ="block";
+    	   };
+  	   };
+  	   
+      //original_income_categoryを押したとき
+       var originalfunc = function(){
+         var bec = document.querySelectorAll('[id^="expense_record_basic"]');
+           for (var i = 0; i < bec.length; i++) {
+             bec[i].disabled = true; 
+           }//basic_income_categoryをdisabledする
+    　   //original_income_record専用のbuttonを表示する
+     　  const p2 = document.getElementById("oer");
+	 　　 if(p2.style.display=="block"){
+		　　   p2.style.display ="none";
+	 　　　  }else{
+		　　　	p2.style.display ="block";
+	 　　  };
+       };
+   </script>
+  </div>
+  			

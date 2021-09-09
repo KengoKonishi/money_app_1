@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :original_income_categories
   resources :original_income_records
   resources :income_records
+  resources :expense_records
   resources :original_expense_categories
   resources :original_expense_records
 end
