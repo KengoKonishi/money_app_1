@@ -33,7 +33,8 @@ class IncomeRecordsController < ApplicationController
       if @original_income_record.save
         flash[:success] = '正常に入力されました'
         redirect_to mypage_show_path
-q        flash[:alert] = '正常に入力されませんでした'
+      else
+        flash[:alert] = '正常に入力されませんでした'
         render :new
       end
     else
