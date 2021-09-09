@@ -1,0 +1,15 @@
+<%= render partial: 'layouts/header' %>
+<div class="record_container">
+    <h1>収入項目をしよう！！</h1>
+    
+    <%= form_with model: @original_expense_category do |f| %>
+      <p>
+        <%= label_tag :name, '項目名：' %>
+        <%= f.text_field :name %>
+      </p>
+      <P>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+      </P>
+      <%= f.submit "登録", class:"btn btn-outline-primary" %>
+    <% end %>
+</div>

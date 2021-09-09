@@ -1,24 +1,27 @@
+<%= render partial: 'layouts/header' %>
+<div class="record_container">
 <h1>original収入登録しよう！！</h1>
 
-<%= form_with model: @original_income_record do |f| %>
-  <p>
-    <%= label_tag :registerdate, '日付：' %>
-    <%= f.date_field :registerdate %>
-  </p>
-  <p>
-    <%= label_tag :money, '金額：' %>
-    <%= f.number_field :money %>
-  </p>
-  <p>
-    <%= label_tag :memo, 'MEMO：' %>
-    <%= f.text_field :memo %>
-  </p>
-  <P>
-    <%= label_tag :original_income_category_id, '収入科目：' %>
-    <%= f.collection_radio_buttons :original_income_category_id, OriginalIncomeCategory.all, :id, :name %>
-  </P>
-  <P>
-    <%= f.hidden_field :user_id, value: current_user.id %>
-  </P>
-  <%= f.submit "登録" %>
-<% end %>
+  <%= form_with model: @original_income_record do |f| %>
+    <p>
+      <%= label_tag :registerdate, '日付：' %>
+      <%= f.date_field :registerdate %>
+    </p>
+    <p>
+      <%= label_tag :money, '金額：' %>
+      <%= f.number_field :money %>
+    </p>
+    <p>
+      <%= label_tag :memo, 'MEMO：' %>
+      <%= f.text_field :memo %>
+    </p>
+    <P>
+      <%= label_tag :original_income_category_id, '収入科目：' %>
+      <%= f.collection_radio_buttons :original_income_category_id, OriginalIncomeCategory.all, :id, :name %>
+    </P>
+    <P>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+    </P>
+    <%= f.submit "登録", class:"btn btn-outline-primary" %>
+  <% end %>
+</div>

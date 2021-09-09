@@ -1,7 +1,16 @@
 class BasicIncomeRecordsController < ApplicationController
   def index
-    @basic_income_records = BasicIncomeRecord.all
+    
     @basic_income_category_id = params[:basic_income_category_id]
+    @basic_income_records = BasicIncomeRecord.all
+    @basic_expense_records = BasicExpenseRecord.all
+    @basic_expense_category_id = params[:basic_expense_category_id]
+    @records = { 
+                 basic_income_records: BasicIncomeRecord.all, 
+                 basic_expense_records: BasicExpenseRecord.all, 
+                 original_income_records: OriginalIncomeRecord.all,
+                 original_expense_records: OriginalExpenseRecord.all
+               }
   end
 
   def show
