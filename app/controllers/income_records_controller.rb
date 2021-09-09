@@ -19,18 +19,37 @@ class IncomeRecordsController < ApplicationController
   end
 
   def create
-
     if params["income_record"][:basic_income_category].present?
-      redirect_to controller: :basic_income_records, action: :create, registerdate: params["income_record"][:registerdate], money: params["income_record"][:money], memo: params["income_record"][:memo], basic_income_category_id: params["income_record"][:basic_income_category], user_id: params["income_record"][:user_id]
+      @basic_income_record = BasicIncomeRecord.new(registerdate: params["income_record"][:registerdate], money: params["income_record"][:money], memo: params["income_record"][:memo], basic_income_category_id: params["income_record"][:basic_income_category], user_id: params["income_record"][:user_id])
+      if @basic_income_record.save
+        flash[:success] = '正常に入力されました'
+        redirect_to mypage_show_path
+      else
+        flash[:alert] = '正常に入力されませんでした'
+        render :new
+      end
     elsif params["income_record"][:original_income_category].present?
-      redirect_to controller: :original_income_records, action: :create
+      @original_income_record = OriginalIncomeRecord.new(registerdate: params["income_record"][:registerdate], money: params["income_record"][:money], memo: params["income_record"][:memo], original_income_category_id: params["income_record"][:original_income_category], user_id: params["income_record"][:user_id])
+      if @original_income_record.save
+        flash[:success] = '正常に入力されました'
+        redirect_to mypage_show_path
+q        flash[:alert] = '正常に入力されませんでした'
+        render :new
+      end
     else
       render :new
     end
 
   end
   
-  
+  private
+    def basic_income_record_params
+      params.require(:basic_income_record).permit(:registerdate, :money, :memo, :basic_income_category_id, :user_id)
+    end
+    
+    def original_income_record_params
+      params.require(:original_income_record).permit(:registerdate, :money, :memo, :original_income_category_id, :user_id)
+    end
 end
 
 

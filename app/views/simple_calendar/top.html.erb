@@ -1,3 +1,9 @@
-<%= render partial: 'layouts/header' %>
 
-<%= render partial: 'simple_calender/month_calender' %>
+<%= month_calendar events: @basic_income_records do |date, basic_income_records| %>
+  <%= date.day %>
+  <% basic_income_records.each do |basic_income_record| %>
+      <%= basic_income_record.money %>円
+      <%= basic_income_record.basic_income_category.name %>
+  <% end %>
+
+<% end %>
