@@ -1,0 +1,21 @@
+// Place all the styles related to the Reports controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.card.report-result{
+    width: 45%;
+    height: 85%;
+    float: left;
+    margin: 20px 40px;
+}
+
+.card-body.report-result{
+    line-height: 40px;
+    background-color: #FFFFCC;
+}
+
+.month-result-title{
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}

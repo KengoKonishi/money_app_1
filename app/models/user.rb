@@ -11,4 +11,6 @@ class User < ApplicationRecord
   has_many :income_records
   has_many :original_expense_categories
   has_many :original_expense_records
+  has_many :basic_expense_categories  
+
 end

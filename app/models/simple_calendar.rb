@@ -1,0 +1,3 @@
+class SimpleCalendar < ApplicationRecord
+    
+end

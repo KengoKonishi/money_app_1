@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'reports/result'
   get '/simple_calendar/top' => "simple_calendar#top"
   get 'mypage/show'
   get '/' => "home#top"
