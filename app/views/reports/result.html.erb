@@ -1,0 +1,80 @@
+<%= render partial: 'layouts/header' %>
+<div class="record_container">
+  
+  <div class="month-result-title">
+    <a>>></a>
+    <%= @this_year %>年<%= @this_month %>月
+    <a><<</a>
+  </div>
+  
+  <div class="card report-result">
+    <h5 class="card-header">収入</h5>
+      <div class="card-body report-result">
+        <h5 class="card-title"><<一覧>></h5>
+
+         <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">カテゴリ</th>
+                <th scope="col">金額</th>
+                <th scope="col">確認</th>
+              </tr>
+            </thead>
+            <tbody>
+                 <% @b_i_rs.each do |b_i_r| %>
+                 <tr>
+                    <td><%= b_i_r.basic_income_category.name %></td>
+                    <td><%= b_i_r.sum_money %>円</td>
+                    <td><a href="#">Go!</a></td>
+                 </tr>
+            　　　 <% end %>
+                 <% @o_i_rs.each do |o_i_r| %>
+                 <tr>
+                    <td><%= o_i_r.original_income_category.name %></td>
+                    <td><%= o_i_r.sum_money %>円</td>
+                    <td><a href="#">Go!</a></td>
+                 </tr>
+                <% end %>
+                </tr>
+            </tbody>
+         </table>
+      
+      </div>
+ </div>
+
+
+  <div class="card report-result">
+   <h5 class="card-header">支出</h5>
+     <div class="card-body report-result">
+        <h5 class="card-title"><<一覧>></h5>
+    
+           <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">カテゴリ</th>
+                <th scope="col">金額</th>
+                <th scope="col">確認</th>
+              </tr>
+            </thead>
+            <tbody>
+                 <% @b_e_rs.each do |b_e_r| %>
+                 <tr>
+                    <td><%= b_e_r.basic_expense_category.name %></td>
+                    <td><%= b_e_r.sum_money %>円</td>
+                    <td><a href="#">Go!</a></td>
+                 </tr>
+            　　　 <% end %>
+                 <% @o_e_rs.each do |o_e_r| %>
+                 <tr>
+                    <td><%= o_e_r.original_expense_category.name %></td>
+                    <td><%= o_e_r.sum_money %>円</td>
+                    <td><a href="#">Go!</a></td>
+                 </tr>
+                <% end %>
+                </tr>
+            </tbody>
+         </table>
+     </div>
+　</div>
+　
+</div>

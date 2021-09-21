@@ -5,10 +5,10 @@ class BasicIncomeRecord < ApplicationRecord
     validates :registerdate, presence:true
     
   def start_time
-    self.created_at
+    self.registerdate
   end
 
   def end_time
-    self.created_at
+    self.registerdate
   end
 end
