@@ -11,4 +11,6 @@ class BasicIncomeRecord < ApplicationRecord
   def end_time
     self.registerdate
   end
+  
+  
 end
