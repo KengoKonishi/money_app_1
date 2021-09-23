@@ -1,22 +1,7 @@
 class ReportsController < ApplicationController
   def result
     @month = params[:month] ? Date.parse(params[:month]) : Time.zone.today.all_month
-    @basic_income_records = BasicIncomeRecord.all.where(registerdate: @month)
-    if @basic_income_records.nil?
-      puts "記録はありません"
-    end
-    @original_income_records = OriginalIncomeRecord.all.where(registerdate: @month)
-    if @original_income_records.nil?
-      puts "記録はありません"
-    end
-    @basic_expense_records = BasicExpenseRecord.all.where(registerdate: @month)
-    if @basic_expense_records.nil?
-      puts "記録はありません"
-    end
-    @original_expense_records = OriginalExpenseRecord.all.where(registerdate: @month)
-    if @original_expense_records.nil?
-      puts "記録はありません"
-    end
+
     #こっちのほうがいい「puts “記録はありません” if @変数.nil?」
 
     @now = Date.today
