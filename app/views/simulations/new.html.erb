@@ -1,0 +1,73 @@
+<%= render partial: 'layouts/header' %>
+<div class="record_container">
+    
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">資産運用シミュレーション</h5>
+    
+        <p>毎月積み立て金額</p>
+        <input type="number" id="amount_of_money" placeholder=@sum_records value="@sum_records" > 
+        
+        <p>積立期間</p>
+        <input type="number" id="range"> 年
+        
+        <p>運用タイプ</p>
+          <div class="btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-outline-primary" for="danger-outlined" >
+              <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off" checked>安心型
+            </label>
+        　　　
+        　　<label class="btn btn-outline-success" for="danger-outlined">
+            　　<input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">標準型
+        　　</label>
+        　　
+        　　<label class="btn btn-outline-danger" for="danger-outlined">
+            　　<input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">積極型
+        　　</label>
+    　  　</div>
+    　　<br>
+        <button type="button" id="form-button">入力</button>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">結果</h5>
+        
+        <div class="card border-dark mb-3" style="max-width: 180rem;">
+          <div class="card-header">安全型を選んだあなた</div>
+          <div class="card-body text-dark">
+            <h5 class="card-title">Dark card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+        
+        <div class="card border-dark mb-3" style="max-width: 180rem;">
+          <div class="card-header">標準型を選んだあなた</div>
+          <div class="card-body text-dark">
+            <h5 class="card-title">Dark card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+        
+        <div class="card border-dark mb-3" style="max-width: 180rem;">
+          <div class="card-header">積極型を選んだあなた</div>
+          <div class="card-body text-dark">
+            <h5 class="card-title">Dark card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+        
+        
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+      
+    </div>
+        
+    
+    <script>
+
+
+ 　 </script>
+</div>

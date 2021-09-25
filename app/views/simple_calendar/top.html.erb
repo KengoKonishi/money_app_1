@@ -9,6 +9,7 @@
         <br>
         <% flatten_records.each do |flatten_record| %>
             <% if flatten_record[:basic_income_category_id].present? %>
+            //link_to
               <a href="/basic_income_records/:id/edit" class="btn btn-warning btn-sm">
                 <%= flatten_record.money %>円
                 <%= flatten_record.basic_income_category.name %>

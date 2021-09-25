@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'simulations/index'
+  get 'simulations/new'
+  get 'simulations/create'
   get 'reports/result'
   get '/simple_calendar/top' => "simple_calendar#top"
   get 'mypage/show'
