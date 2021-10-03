@@ -1,9 +1,32 @@
-<h1>支出項目編集ページ</h1>
-
-<%= form_with model: @basic_expense_record do |f| %>
-  <%= f.date_field :registerdate %>
-  <%= f.number_field :money %>
-  <%= f.text_field :memo %>
-  <%= f.collection_radio_buttons :basic_expense_category_id, BasicExpenseCategory.all, :id, :name %>
-  <%= f.submit "編集" %>
-<% end %>
+<%= render partial: 'layouts/header' %>
+  <div class="record_container">
+    
+    <h1>編集(支出基本カテゴリ）</h1>
+    
+    <%= form_with model: @basic_expense_record do |f| %>
+      <p>
+        <%= label_tag :registerdate, '◆日付：' %>
+        <%= f.date_field :registerdate %>
+      </p>
+      <p>
+        <%= label_tag :money, '◆金額：' %>
+        <%= f.number_field :money %>
+      </p>
+      <p>
+        <%= label_tag :memo, '◆MEMO：' %>
+        <%= f.text_field :memo %>
+      </p>
+      <P>
+        <%= label_tag :income_category_id, '◆収入科目：' %>
+        <br />
+      <p>・基本カテゴリ</p>
+      　<%= f.collection_radio_buttons :basic_expense_category_id, BasicExpenseCategory.all, :id, :name %>
+      </p>
+      <%= f.submit "編集" %>
+      
+      <p>※オリジナルカテゴリにて修正される場合は、お手数ですが一度削除の上、改めてご登録お願いします。</p>
+      
+    <% end %>
+    
+    <%= link_to ">>戻る", simple_calendar_top_path %>
+   </div>

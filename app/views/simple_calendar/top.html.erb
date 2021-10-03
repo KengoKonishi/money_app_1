@@ -1,34 +1,59 @@
 <%= render partial: 'layouts/header' %>
   <div class="record_container">
-   <div class="card">
-     <div class="card-header">
+    
+   <div class="simple_calendar card" style="margin-top: 20px;">
+     <div class="card-header" style="text-align: center; font-weight: bold;">
           カレンダー
      </div>
+
       <%= month_calendar events: @flatten_records do |date, flatten_records| %>
         <%= date.day %>
         <br>
         <% flatten_records.each do |flatten_record| %>
             <% if flatten_record[:basic_income_category_id].present? %>
-            //link_to
-              <a href="/basic_income_records/:id/edit" class="btn btn-warning btn-sm">
-                <%= flatten_record.money %>円
-                <%= flatten_record.basic_income_category.name %>
-             </a>
+              <div class="btn-group">
+                <button type="button" class="btn btn-warning dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <%= flatten_record.money %>円
+                  <%= flatten_record.basic_income_category.name %>
+                </button>
+                <div class="dropdown-menu">
+                  <%= link_to "編集", edit_basic_income_record_path(flatten_record.id), class:"dropdown-item" %>
+                  <%= link_to "削除", basic_income_record_path(flatten_record), class:"dropdown-item", method: :delete, data: { confirm: 'Are you sure?' } %>
+                </div>
+              </div>
             <% elsif flatten_record[:original_income_category_id].present? %>
-              <a href="/original_income_records/:id/edit" class="btn btn-warning btn-sm">
-                <%= flatten_record.money %>円
-                <%= flatten_record.original_income_category.name %>
-              </a>
+              <div class="btn-group">
+                <button type="button" class="btn btn-warning dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <%= flatten_record.money %>円
+                  <%= flatten_record.original_income_category.name %>
+                </button>
+                <div class="dropdown-menu">
+                  <%= link_to "編集", edit_original_income_record_path(flatten_record.id), class:"dropdown-item" %>
+                  <%= link_to "削除", original_income_record_path(flatten_record), class:"dropdown-item", method: :delete, data: { confirm: 'Are you sure?' } %>
+                </div>
+              </div>
             <% elsif flatten_record[:basic_expense_category_id].present? %>
-              <a href="/basic_expense_records/:id/edit" class="btn btn-danger btn-sm">
-                <%= flatten_record.money %>円
-                <%= flatten_record.basic_expense_category.name %>
-              </a>
+              <div class="btn-group">
+                <button type="button" class="btn btn-danger dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <%= flatten_record.money %>円
+                  <%= flatten_record.basic_expense_category.name %>
+                </button>
+                <div class="dropdown-menu">
+                  <%= link_to "編集", edit_basic_expense_record_path(flatten_record.id), class:"dropdown-item" %>
+                  <%= link_to "削除", basic_expense_record_path(flatten_record), class:"dropdown-item", method: :delete, data: { confirm: 'Are you sure?' } %>
+                </div>
+              </div>
             <% elsif flatten_record[:original_expense_category_id].present? %>
-              <a href="/original_expense_records/:id/edit" class="btn btn-danger btn-sm">
-                <%= flatten_record.money %>円
-                <%= flatten_record.original_expense_category.name %>
-              </a>
+              <div class="btn-group">
+                <button type="button" class="btn btn-danger dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <%= flatten_record.money %>円
+                  <%= flatten_record.original_expense_category.name %>
+                </button>
+                <div class="dropdown-menu">
+                  <%= link_to "編集", edit_original_expense_record_path(flatten_record.id), class:"dropdown-item" %>
+                  <%= link_to "削除", original_expense_record_path(flatten_record), class:"dropdown-item", method: :delete, data: { confirm: 'Are you sure?' } %>
+                </div>
+              </div>
             <% end %>
             <br>
         <% end %>
@@ -37,8 +62,8 @@
     
 
     <div class="sum_report" >
-      <div class="card">
-        <div class="card-header">
+      <div class="simple_calendar card" style="margin-top: 20px;">
+        <div class="card-header" style="text-align: center; font-weight: bold;">
           収支結果:<%= @this_year %>年<%= @this_month %>月
         </div>
         <div class="card-body">
@@ -68,9 +93,8 @@
           </blockquote>
         </div>
       </div>
-      
-      
-      
+ 
     </div>
+    <%= link_to ">>戻る", mypage_show_path %>
 
   </div>

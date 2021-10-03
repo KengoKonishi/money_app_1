@@ -4,70 +4,199 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">資産運用シミュレーション</h5>
-    
-        <p>毎月積み立て金額</p>
-        <input type="number" id="amount_of_money" placeholder=@sum_records value="@sum_records" > 
         
-        <p>積立期間</p>
-        <input type="number" id="range"> 年
-        
-        <p>運用タイプ</p>
-          <div class="btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-outline-primary" for="danger-outlined" >
-              <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off" checked>安心型
-            </label>
-        　　　
-        　　<label class="btn btn-outline-success" for="danger-outlined">
-            　　<input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">標準型
-        　　</label>
-        　　
-        　　<label class="btn btn-outline-danger" for="danger-outlined">
-            　　<input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">積極型
-        　　</label>
-    　  　</div>
-    　　<br>
-        <button type="button" id="form-button">入力</button>
-      </div>
-    </div>
-    
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">結果</h5>
-        
-        <div class="card border-dark mb-3" style="max-width: 180rem;">
+        <p>金額・預入期間(年)・運用タイプを入力してください。</p>
+    　　
+    　　    <form name="myform" style="line-height:2.5;">
+            <table>
+              <tr>
+                <th>毎月積立金額</th>
+                <td><input type="text" name="amount" size="22" value="<%= @sum_records %>" /> 円 ※今月の収支金額です。</td>
+              </tr>
+              <tr>
+                <th>預入期間</th>
+                <td><input type="text" name="period" size="22" value="1" /> 年</td>
+              </tr>
+              <tr>
+                <th>運用タイプ</th>
+                <td>
+                   <div class="btn-group-toggle" data-toggle="buttons">
+                      <label class="btn btn-outline-primary" for="danger-outlined">
+                      　　<input type="radio" class="btn-check" name="rate" id="primary-outlined" autocomplete="off" value="3" onclick="aaa()">安心型
+                  　　</label>
+                  　　
+                  　　<label class="btn btn-outline-success" for="danger-outlined">
+                      　　<input type="radio" class="btn-check" name="rate" id="success-outlined" autocomplete="off" value="5" onclick="bbb()">標準型
+                  　　</label>
+                  　　
+                  　　<label class="btn btn-outline-danger" for="danger-outlined">
+                      　　<input type="radio" class="btn-check" name="rate" id="danger-outlined" autocomplete="off" value="7" onclick="ccc()">積極型
+                  　　</label>
+              　  　</div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" class="btn">
+                  <input type="button" onclick="Calculator()" value="計算" />
+                  <input type="reset" onclick="TableClear()" value="クリア" />
+                </td>
+              </tr>
+         
+              <tr>
+                <th>積立累計金額</th>
+                <td><input type="text" name="sum" size="22" /> 円</td>
+              </tr>
+              <tr>
+                <th>運用利益</th>
+                <td><input type="text" name="profit" size="22" /> 円</td>
+              </tr>
+              <tr>
+                <th>受取金額</th>
+                <td><input type="text" name="receipt" size="22" /> 円</td>
+              </tr>
+            </table>
+          </form>
+      <%= link_to ">>戻る", mypage_show_path %>
+      <div class="simulation_result" style="margin-top:50px;">
+        <div class="card border-primary mb-3" style="max-width: 180rem; display: none;" id="safe">
           <div class="card-header">安全型を選んだあなた</div>
           <div class="card-body text-dark">
-            <h5 class="card-title">Dark card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">年利3%の運用を目指します！</h5>
+            <p class="card-text">債券中心の投資信託がオススメ</p>
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="https://www.wam.abic.co.jp/contents/C130157/wam3/1/pc/funddtil.html?_com_id_product=1&_com_id_company=C130157&_biz_id_itcode=A29311069&date=202109300038&date=202109300038&_com_id_session=02202109300103479144">
+                  ニッセイ日本インカムオープン（愛称：Ｊボンド）
+                </a>(国内債券）
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="https://www.wam.abic.co.jp/contents/C130157/wam3/1/pc/funddtil.html?_com_id_product=1&_com_id_company=C130157&_biz_id_itcode=A4931109C&date=202109300041&date=202109300041&_com_id_session=02202109300103479260">
+                東京海上・ニッポン世界債券ファンド（為替ヘッジあり）
+                </a>(海外債券)
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="https://www.wam.abic.co.jp/contents/C130157/wam3/1/pc/funddtil.html?_com_id_product=1&_com_id_company=C130157&_biz_id_itcode=A02312125&date=202109300043&date=202109300043&_com_id_session=02202109300103479347">
+                  インドネシア債券ファンド
+                </a>(海外特定国債券)
+              </li>
+            </ul>
           </div>
         </div>
-        
-        <div class="card border-dark mb-3" style="max-width: 180rem;">
+        <div class="card border-success mb-3" style="max-width: 180rem; display: none;" id="normal">
           <div class="card-header">標準型を選んだあなた</div>
           <div class="card-body text-dark">
-            <h5 class="card-title">Dark card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">年利5%の運用を目指します！</h5>
+            <p class="card-text">債券や株式などが分散されたバランス型の投資信託がオススメ</p>
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="https://www.wam.abic.co.jp/contents/C130157/wam3/1/pc/funddtil.html?_com_id_product=1&_com_id_company=C130157&_biz_id_itcode=A96311073&date=202109300045&date=202109300045&_com_id_session=02202109300103479447">
+                  セゾン・バンガード・グローバルバランスファンド
+                </a>(内外バランス)
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="https://www.wam.abic.co.jp/contents/C130157/wam3/1/pc/funddtil.html?_com_id_product=1&_com_id_company=C130157&_biz_id_itcode=A03315178&date=202109300046&date=202109300046&_com_id_session=02202109300103479498">
+                  つみたて８資産均等バランス
+                </a>(内外バランス)
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="https://www.wam.abic.co.jp/contents/C130157/wam3/1/pc/funddtil.html?_com_id_product=1&_com_id_company=C130157&_biz_id_itcode=A03312163&date=202109300047&date=202109300047&_com_id_session=02202109300103479525">
+                  ｅＭＡＸＩＳ最適化バランス（マイゴールキーパー）
+                </a>(内外バランス)
+              </li>
+            </ul>
           </div>
         </div>
-        
-        <div class="card border-dark mb-3" style="max-width: 180rem;">
+        <div class="card border-danger mb-3" style="max-width: 180rem; display: none;" id="active">
           <div class="card-header">積極型を選んだあなた</div>
           <div class="card-body text-dark">
-            <h5 class="card-title">Dark card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">年利7%の運用を目指します！</h5>
+            <p class="card-text">海外株式中心の投資信託がオススメ</p>
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="https://www.wam.abic.co.jp/contents/C130157/wam3/1/pc/funddtil.html?_com_id_product=1&_com_id_company=C130157&_biz_id_itcode=A03313178&date=202109300049&date=202109300049&_com_id_session=02202109300103479617">
+                  つみたて先進国株式
+                </a>(海外株式)
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="https://www.wam.abic.co.jp/contents/C130157/wam3/1/pc/funddtil.html?_com_id_product=1&_com_id_company=C130157&_biz_id_itcode=A81313094&date=202109300051&date=202109300051&_com_id_session=02202109300103479723">
+                  ＳＭＴＡＭダウ・ジョーンズインデックスファンド
+                </a>(海外株式)
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="https://www.wam.abic.co.jp/contents/C130157/wam3/1/pc/funddtil.html?_com_id_product=1&_com_id_company=C130157&_biz_id_itcode=A4731617B&date=202109300052&date=202109300052&_com_id_session=02202109300103479738">
+                  Ｏｎｅ日本株ダブル・ブルファンド
+                </a>(国内株式)
+              </li>
+            </ul>
           </div>
         </div>
-        
-        
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-      
+      </div>  
     </div>
-        
+  </div>     
     
-    <script>
 
+      <script type="text/javascript">
+        function Calculator() {
+          var amount, period;
+          amount = parseInt(document.myform.amount.value, 10);
+          period = parseInt(document.myform.period.value, 10);
+          
+          let rates = document.getElementsByName("rate");
+          let rate = "";
+          
+          for (let i = 0; i < rates.length; i++) {
+          	if (rates[i].checked){
+          		rate = rates[i].value;
+          	}
+          }
+          
+          document.myform.receipt.value = fukuri(rate, amount, period);
+          document.myform.sum.value = amount * 12 * period;
+          document.myform.profit.value = document.myform.receipt.value - document.myform.sum.value;
+          
+          const p1 = document.getElementById("safe");
+          if(rate=="3"){
+      		    p1.style.display ="block";
+      	   }else{
+      		  	p1.style.display ="none";
+      	   };
+      	   
+      	  const p2 = document.getElementById("normal");
+          if(rate=="5"){
+      		    p2.style.display ="block";
+      	   }else{
+      		  	p2.style.display ="none";
+      	   };
+      	   
+      	  const p3 = document.getElementById("active");
+          if(rate=="7"){
+      		    p3.style.display ="block";
+      	   }else{
+      		  	p3.style.display ="none";
+      	   };
 
- 　 </script>
+        }
+  
+        function fukuri(rate, amount, period) {
+          var receipt;
+          receipt = amount;
+          receipt = 0;
+          //預入金額＝元金×(1＋金利)/100
+          //Math.round：小数点以下を四捨五入
+          for (var i = 1; i <= period; i++) {
+            receipt = Math.round((receipt + amount * 12) *(1 + rate/100));
+
+          }
+
+          return receipt;
+        }
+  
+        function TableClear() {
+          document.getElementById("result").innerHTML = "";
+          rates.innerHTML = "";
+        }
+
+      </script>
+
+ 
 </div>
