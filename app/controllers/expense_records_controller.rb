@@ -22,7 +22,7 @@ class ExpenseRecordsController < ApplicationController
       @basic_expense_record = BasicExpenseRecord.new(registerdate: params["expense_record"][:registerdate], money: params["expense_record"][:money], memo: params["expense_record"][:memo], basic_expense_category_id: params["expense_record"][:basic_expense_category], user_id: params["expense_record"][:user_id])
       if @basic_expense_record.save
         flash[:success] = '正常に入力されました'
-        redirect_to mypage_show_path
+        redirect_to simple_calendar_top_path
       else
         flash[:alert] = '正常に入力されませんでした'
         render :new
@@ -31,7 +31,7 @@ class ExpenseRecordsController < ApplicationController
       @original_expense_record = OriginalExpenseRecord.new(registerdate: params["expense_record"][:registerdate], money: params["expense_record"][:money], memo: params["expense_record"][:memo], original_expense_category_id: params["expense_record"][:original_expense_category], user_id: params["expense_record"][:user_id])
       if @original_expense_record.save
         flash[:success] = '正常に入力されました'
-        redirect_to mypage_show_path
+        redirect_to simple_calendar_top_path
       else
         flash[:alert] = '正常に入力されませんでした'
         render :new

@@ -23,7 +23,7 @@ class IncomeRecordsController < ApplicationController
       @basic_income_record = BasicIncomeRecord.new(registerdate: params["income_record"][:registerdate], money: params["income_record"][:money], memo: params["income_record"][:memo], basic_income_category_id: params["income_record"][:basic_income_category], user_id: params["income_record"][:user_id])
       if @basic_income_record.save
         flash[:success] = '正常に入力されました'
-        redirect_to mypage_show_path
+        redirect_to simple_calendar_top_path
       else
         flash[:alert] = '正常に入力されませんでした'
         render :new
@@ -32,7 +32,7 @@ class IncomeRecordsController < ApplicationController
       @original_income_record = OriginalIncomeRecord.new(registerdate: params["income_record"][:registerdate], money: params["income_record"][:money], memo: params["income_record"][:memo], original_income_category_id: params["income_record"][:original_income_category], user_id: params["income_record"][:user_id])
       if @original_income_record.save
         flash[:success] = '正常に入力されました'
-        redirect_to mypage_show_path
+        redirect_to simple_calendar_top_path
       else
         flash[:alert] = '正常に入力されませんでした'
         render :new
