@@ -75,3 +75,8 @@ gem 'devise'
 gem 'dotenv-rails'
 
 gem "simple_calendar", "~> 2.0"
+
+group :production do
+ # postgresql
+ gem 'pg'
+end
