@@ -1,2 +1,0 @@
-class SimpleCalendar < ApplicationRecord
-end
