@@ -20,5 +20,3 @@ module MoneyApp
     config.action_view.embed_authenticity_token_in_remote_forms = true
   end
 end
-
-config.assets.initialize_on_precompile = false
