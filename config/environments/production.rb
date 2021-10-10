@@ -23,11 +23,11 @@ Rails.application.configure do
   config.public_file_server.enabled = true
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = Uglifier.new(harmony: true)
+  #config.assets.js_compressor = Uglifier.new(harmony: true)
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  #config.assets.compile = true
+  config.assets.compile = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
@@ -106,8 +106,8 @@ Rails.application.configure do
    config.action_mailer.smtp_settings = {
      :address => "smtp.gmail.com",
      :port => 587,
-     :user_name => "konitanz627@gmail.com",
-     :password => "Kengo524@",
+     :user_name => ENV["GMAIL_ADDRESS"],
+     :password => ENV["GMAIL_2FACTOR_PASSWORD"],
      :authentication => :plain,
      :enable_starttls_auto => true
    }
