@@ -11,25 +11,26 @@
           記録しよう
         </div>
         <div class="card-body">
-            <a href="https://b35d31f38bf146ceab70f1bfc3b4f541.vfs.cloud9.us-east-2.amazonaws.com/income_records/new">
-              <button type="button" class="btn btn-primary">
-                <i class="fas fa-sign-in-alt"></i> 収入登録
-              </button> 
-            </a>
+            
+              <%= link_to new_income_record_path, class: 'btn btn-primary'  do %>
+                <i class="fas fa-sign-in-alt"></i> 
+                <span>収入登録</span>
+              <% end %> 
+            
           
-            <a href="https://b35d31f38bf146ceab70f1bfc3b4f541.vfs.cloud9.us-east-2.amazonaws.com/expense_records/new">
-              <button type="button" class="btn btn-success">
-                <i class="fas fa-sign-out-alt"></i> 支出登録
-              </button>
-            </a>
+              <%= link_to new_expense_record_path, class: 'btn btn-success'  do %>
+                <i class="fas fa-sign-out-alt"></i> 
+                <span>支出登録</span>
+              <% end %>
+            
 
             <div class="mypage btn-group">
               <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-plus-circle"></i> カテゴリの追加
               </button>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="https://b35d31f38bf146ceab70f1bfc3b4f541.vfs.cloud9.us-east-2.amazonaws.com/original_income_categories/new">収入カテゴリの追加</a>
-                <a class="dropdown-item" href="https://b35d31f38bf146ceab70f1bfc3b4f541.vfs.cloud9.us-east-2.amazonaws.com/original_expense_categories/new">支出カテゴリの追加</a>
+                <%= link_to "収入カテゴリの追加", new_original_income_category_path, class:"dropdown-item" %>
+                <%= link_to "支出カテゴリの追加", new_original_expense_category_path, class:"dropdown-item" %>
               </div>
             </div>
         </div>
@@ -40,8 +41,8 @@
           記録結果を見よう
         </div>
         <div class="card-body">
-          <p><a href="https://b35d31f38bf146ceab70f1bfc3b4f541.vfs.cloud9.us-east-2.amazonaws.com/simple_calendar/top">カレンダー</a></p>
-          <p><a href="https://b35d31f38bf146ceab70f1bfc3b4f541.vfs.cloud9.us-east-2.amazonaws.com/reports/result">今月のレポート</a></p>
+          <p><%= link_to "カレンダー", simple_calendar_top_path %></p>
+          <p><%= link_to "今月のレポート", reports_result_path %></p>
         </div>
       </div>
 
@@ -51,10 +52,12 @@
         </div>
         <div class="card-body">
           <a href="https://b35d31f38bf146ceab70f1bfc3b4f541.vfs.cloud9.us-east-2.amazonaws.com/simulations/new">    
-             <button type="button" class="btn btn-info"><i class="fas fa-chart-line"></i> 資産運用シミュレーション</button>
+             <button type="button" class="btn btn-info"><i class="fas fa-chart-line"></i> </button>
           </a>
-         <button type="button" class="btn btn-info"><i class="fas fa-comment-dollar"></i> 貯金シミュレーション</button>
-         <button type="button" class="btn btn-info"><i class="fas fa-cog"></i> 登録内容の編集</button>
+         <%= link_to simulations_new_path, class: 'btn btn-info'  do %>
+                <i class="fas fa-chart-line"></i>
+                <span>資産運用シミュレーション</span>
+         <% end %> 
         </div>
       </div>
 
