@@ -31,9 +31,9 @@ ActiveRecord::Schema.define(version: 2021_09_09_231204) do
   end
 
   create_table "basic_income_categories", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
   end
 
   create_table "basic_income_records", force: :cascade do |t|
